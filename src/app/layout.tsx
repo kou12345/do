@@ -25,7 +25,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <div className="grid grid-cols-12 gap-4 mt-4">
+          <div className="mt-4 grid grid-cols-12 gap-4">
             <Header />
             {children}
           </div>

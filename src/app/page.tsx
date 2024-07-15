@@ -5,14 +5,13 @@ import {
   CardFooter,
   CardHeader,
 } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
 import { CheckIcon, TrashIcon, Pencil2Icon } from "@radix-ui/react-icons";
 
 export default function Home() {
   return (
     <>
       {/* タスク一覧 */}
-      <div className="col-start-3 col-span-8">
+      <div className="col-span-8 col-start-3">
         {Array.from({ length: 10 }).map((_, index) => (
           <Card key={index} className="my-4">
             <CardHeader>
