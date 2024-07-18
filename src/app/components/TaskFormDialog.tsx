@@ -6,7 +6,7 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
-import React from "react";
+import { ReactNode } from "react";
 import { DatePicker } from "./DatePicker";
 import { Textarea } from "@/components/ui/textarea";
 import { createTask, updateTask } from "@/server/actions/task";
@@ -17,13 +17,12 @@ export const TaskFormDialog: React.FC<{
   description: string;
   dueDate: Date | undefined;
   setDueDate: (date: Date | undefined) => void;
-}> = ({ mode, title, description, dueDate, setDueDate }) => {
+  children: ReactNode;
+}> = ({ mode, title, description, dueDate, setDueDate, children }) => {
   const actionWithDueDate = createTask.bind(null, dueDate);
   return (
     <Dialog>
-      <DialogTrigger asChild>
-        <Button>Create</Button>
-      </DialogTrigger>
+      <DialogTrigger asChild>{children}</DialogTrigger>
       <DialogContent>
         <form
           action={mode === "create" ? actionWithDueDate : updateTask}
@@ -46,7 +45,7 @@ export const TaskFormDialog: React.FC<{
           <DatePicker date={dueDate} setDate={setDueDate} />
           <DialogFooter>
             <Button type="submit" form="task-form">
-              Create
+              {mode === "create" ? "Create" : "Update"}
             </Button>
           </DialogFooter>
         </form>
