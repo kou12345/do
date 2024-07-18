@@ -25,7 +25,9 @@ export const Header = () => {
           description=""
           dueDate={date}
           setDueDate={setDate}
-        />
+        >
+          <Button>Create</Button>
+        </TaskFormDialog>
       </div>
     </>
   );
